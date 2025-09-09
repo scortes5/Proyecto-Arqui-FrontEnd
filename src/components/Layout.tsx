@@ -6,7 +6,7 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <div className="min-h-screen m-0 font-sans text-text bg-gradient-to-r from-[#0a0024] to-[#1a0979]">
+    <div className="min-h-screen m-0 font-sans text-text bg-gradient-to-r from-[#1E065C] via-[#1E065C] to-[#0b0b0d]">
       {children}
     </div>
   );
