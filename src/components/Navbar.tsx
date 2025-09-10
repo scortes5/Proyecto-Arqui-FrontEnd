@@ -14,7 +14,7 @@ const Navbar = (props: Props) => {
   return (
     <header
       className="flex justify-end items-center bg text-white text-xl top-0 
-  h-[100px] py-2 border-b border-white/20"
+  h-[65px] py-2 border-b border-white/20"
     >
       <ul className="flex">
         <LoginButton />
