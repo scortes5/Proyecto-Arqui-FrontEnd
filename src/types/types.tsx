@@ -1,15 +1,17 @@
 export type Property = {
-  name: String;
-  price: Number;
-  currency: String;
-  bedrooms: String;
-  bathrooms: String;
-  m2: String;
-  location: String;
-  img: String;
-  url: String;
-  is_project: Boolean;
-  timestamp: String;
+  id: number;
+  name: string;
+  price: number;
+  currency: string;
+  bedrooms: string;
+  bathrooms: string;
+  m2: string;
+  location: string;
+  img: string;
+  url: string;
+  is_project: boolean;
+  timestamp: string;
+  reservations: number;
 };
 
 export type Properties = Property[];
