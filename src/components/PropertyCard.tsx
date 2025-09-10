@@ -1,14 +1,24 @@
 import React from "react";
+import type { Property } from "../types/types";
 
-const PropertyCard = () => {
+interface Props {
+  property: Property;
+}
+
+const PropertyCard = ({ property }: Props) => {
   return (
     <div className="h-auto w-auto border-2 border-[rgba(75,30,133,0.5)] rounded-[1.5em] bg-gradient-to-br from-[rgba(75,30,133,1)] to-[rgba(75,30,133,0.01)] text-white font-nunito p-[1em] flex justify-center items-left flex-col gap-[0.75em] backdrop-blur-[12px]">
-      <div className="h-full">
-        <h1 className="text-[2em] font-medium">Heading</h1>
+      <div className="h-full gap-5 flex flex-col">
+        <h1 className="text-[1em] font-medium">{property.name}</h1>
         <p className="text-[0.85em]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero dolorum
           blanditiis pariatur sequi magni.
         </p>
+        <img
+          src={property.img}
+          alt={property.name}
+          className="w-full h-48 object-cover rounded-[1.5em] "
+        />
       </div>
       <button className="h-fit w-fit px-[1em] py-[0.25em] border-[1px] rounded-full flex justify-center items-center gap-[0.5em] overflow-hidden group hover:translate-y-[0.125em] duration-200 backdrop-blur-[12px]">
         <p>Button</p>
