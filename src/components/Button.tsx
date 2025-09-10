@@ -7,7 +7,7 @@ interface Props {
 
 export const Button = ({ children, onClick }: Props) => {
   return (
-    <button className="px-10 cursor-pointer" onClick={onClick}>
+    <button className="px-10 cursor-pointer text-sm" onClick={onClick}>
       {children}
     </button>
   );
