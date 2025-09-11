@@ -7,7 +7,7 @@ interface Props {
 
 const Pagination = ({ page, limit }: Props) => {
   return (
-    <h1 className="top-0 absolute text-white text-2xl">
+    <h1 className="top-4 absolute text-white text-2xl">
       Pagina {page} - Limite de properties {limit}
     </h1>
   );
