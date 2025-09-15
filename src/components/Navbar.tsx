@@ -3,10 +3,13 @@ import LogoutButton from "./Auth/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
 import { PropertyFilter } from "./Property/PropertyFilter";
 import { useProperties } from "../hooks/useProperties";
+import { Button } from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { isAuthenticated } = useAuth0();
   const { searchProperties } = useProperties();
+  const navigate = useNavigate();
 
   if (isAuthenticated) {
     console.log("estas autenticado");
@@ -18,10 +21,17 @@ const Navbar = () => {
     >
       <PropertyFilter searchProperties={searchProperties} />
       <ul className="flex ml-auto">
+        {isAuthenticated && (
+          <>
+            <Button onClick={() => navigate("/profile")}>Perfil</Button>
+            <Button onClick={() => navigate("/buyrequests")}>
+              Solicitudes de compra
+            </Button>
+          </>
+        )}
         <LoginButton />
         <LogoutButton />
       </ul>
-      {isAuthenticated && <div>estas loggeado</div>}
     </header>
   );
 };

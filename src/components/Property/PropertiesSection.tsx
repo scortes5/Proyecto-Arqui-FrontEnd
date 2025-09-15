@@ -7,20 +7,11 @@ import { useProperties } from "../../hooks/useProperties";
 export const PropertiesSection = () => {
   const { page, setPage, limit, properties, loading, error } = useProperties();
 
-  if (properties?.length == 0) {
-    return (
-      <div className="relative h-[calc(100vh-4rem)] flex items-center justify-center text-center">
-        <div className="text-white text-4xl">
-          No se encontraron propiedades que cumplan con el filtro o simplemente
-          no quedan mas propiedades en esta página
-        </div>{" "}
-      </div>
-    );
-  }
   if (error || !properties) {
+    console.log(properties);
     return (
       <div className="relative h-[calc(100vh-4rem)] flex items-center justify-center">
-        <div className="text-white text-4xl">Error!!</div>{" "}
+        <div className="text-white text-4xl">Error!! </div>{" "}
       </div>
     );
   }
@@ -29,6 +20,17 @@ export const PropertiesSection = () => {
     return (
       <div className="relative h-[calc(100vh-4rem)] flex items-center justify-center">
         <div className="w-8 h-8 border-4 border-gray-300 border-t-purple-500 rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  if (properties.length == 0) {
+    return (
+      <div className="relative h-[calc(100vh-4rem)] flex items-center justify-center text-center">
+        <div className="text-white text-4xl">
+          No se encontraron propiedades que cumplan con el filtro o simplemente
+          no quedan mas propiedades en esta página
+        </div>{" "}
       </div>
     );
   }

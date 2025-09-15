@@ -15,6 +15,7 @@ export const PropertiesProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const newUrl = `${baseUrl}?page=${page}&limit=${limit}`;
     setUrl(newUrl);
+    console.log("url", newUrl);
   }, [page, limit]);
 
   const {
