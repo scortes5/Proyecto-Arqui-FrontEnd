@@ -13,8 +13,8 @@ export default function useCustomHookAwaitAxios<T extends { id: number }>(
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get<T[]>(baseUrl);
-        setData(response.data);
+        const response = await axios.get<{ results: T[] }>(baseUrl);
+        setData(response.data.results);
       } catch (err) {
         setError(err);
       } finally {

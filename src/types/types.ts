@@ -9,9 +9,6 @@ export type Property = {
   location: string;
   img: string;
   url: string;
-  is_project: boolean;
+  is_proyect: boolean;
   timestamp: string;
-  reservations: number;
 };
-
-export type Properties = Property[];

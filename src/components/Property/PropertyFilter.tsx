@@ -1,29 +1,36 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
-
-// Importa los estilos CSS para que se vea bien
 import "react-datepicker/dist/react-datepicker.css";
 
-interface Props {}
+interface Props {
+  searchProperties: (
+    location: string,
+    maxPrice: number | "",
+    date: string
+  ) => void;
+}
 
-export const PropertyFilter = (props: Props) => {
+export const PropertyFilter = ({ searchProperties }: Props) => {
   const [location, setLocation] = useState("");
   const [maxPrice, setMaxPrice] = useState<number | "">("");
-  const [date, setDate] = useState<Date | null>(null);
+  const [date, setDate] = useState<Date | null>(null); // ahora guardamos un Date real
 
   const handleApply = () => {
-    console.log("Filtrando");
+    const formattedDate = date
+      ? date.toISOString().split("T")[0] // convierte a "YYYY-MM-DD"
+      : "";
+    searchProperties(location, maxPrice, formattedDate);
   };
 
   return (
-    <div className="flex items-center gap-2 bg-purple-900 text-white rounded-lg p-2">
+    <div className="flex items-center gap-2 bg-white rounded-lg p-2 ml-10">
       {/* Ubicación */}
       <input
         type="text"
         placeholder="Ubicación"
         value={location}
         onChange={(e) => setLocation(e.target.value)}
-        className="px-2 py-1 rounded-md text-black text-sm"
+        className="px-2 py-1 rounded-md text-[#2c1b4f] text-sm"
       />
 
       {/* Precio */}
@@ -34,13 +41,13 @@ export const PropertyFilter = (props: Props) => {
         onChange={(e) =>
           setMaxPrice(e.target.value === "" ? "" : Number(e.target.value))
         }
-        className="px-2 py-1 rounded-md text-black text-sm w-24"
+        className="px-2 py-1 rounded-md text-[#2c1b4f] text-sm w-24"
       />
 
       {/* Fecha */}
       <DatePicker
         selected={date}
-        onChange={(date) => setDate(date)}
+        onChange={(d) => setDate(d)} // d es un Date o null
         placeholderText="Fecha"
         className="px-2 py-1 rounded-md text-black text-sm w-32"
         dateFormat="dd/MM/yyyy"
@@ -52,6 +59,16 @@ export const PropertyFilter = (props: Props) => {
         className="bg-purple-700 hover:bg-purple-600 px-3 py-1 rounded-md text-sm"
       >
         Filtrar
+      </button>
+      <button
+        onClick={() => {
+          setLocation("");
+          setMaxPrice("");
+          setDate(null);
+        }}
+        className="bg-gray-400 hover:bg-gray-300 px-3 py-1 rounded-md text-sm"
+      >
+        Limpiar
       </button>
     </div>
   );

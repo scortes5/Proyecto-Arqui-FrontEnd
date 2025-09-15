@@ -48,7 +48,7 @@ export const PropertyDetail = ({ property, closeModal }: Props) => {
         </p>
         <p>
           <span className="font-semibold">Proyecto: </span>
-          {property.is_project ? "Sí" : "No"}
+          {property.is_proyect ? "Sí" : "No"}
         </p>
       </div>
 
