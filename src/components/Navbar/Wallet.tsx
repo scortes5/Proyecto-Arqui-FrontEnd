@@ -1,8 +1,8 @@
-import { useWalletStore } from "../stores/WalletStore";
+import { useWalletStore } from "../../stores/WalletStore";
 
 interface Props {}
 
-export const Wallet = (props: Props) => {
+export const Wallet = ({}: Props) => {
   const { balance, addFunds, spendFunds } = useWalletStore();
   return (
     <div className="flex items-center gap-2 bg-white text-purple-700 px-3 py-1 rounded-lg">

@@ -9,7 +9,7 @@ type PropertiesStore = {
   setUrl: (url: string) => void;
 };
 
-export const usePropertiesStore = create<PropertiesStore>((set, get) => ({
+export const usePropertiesStore = create<PropertiesStore>((set) => ({
   limit: 4,
   page: 1,
   setPage: (page) => set({ page }),

@@ -1,4 +1,3 @@
-import React from "react";
 import useApiResource from "../hooks/useApiResource";
 import type { Conversion } from "../types/Conversion";
 

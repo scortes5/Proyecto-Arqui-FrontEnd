@@ -4,6 +4,7 @@ import { Modal } from "../Modal";
 import { PropertyButton } from "./PropertyButton";
 import PropertyDetail from "./PropertyDetail";
 import { Card } from "../Card";
+import { BuyRequestOption } from "./BuyRequestOption";
 
 interface Props {
   property: Property;
@@ -13,14 +14,21 @@ const PropertyCard = ({ property }: Props) => {
   const [isPropertyModalOpen, setIsPropertyModalOpen] = useState(false);
   const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
 
-  const openModal = () => {
+  const openPropertyModal = () => {
     console.log("Abriendo modal");
     setIsPropertyModalOpen(true);
   };
 
-  const closeModal = () => {
+  const closePropertyModal = () => {
     console.log("Cerrando modal");
     setIsPropertyModalOpen(false);
+  };
+
+  const openBuyModal = () => setIsBuyModalOpen(true);
+
+  const closeBuyModal = () => {
+    setIsBuyModalOpen(false);
+    console.log("cerrando modal de compra");
   };
 
   return (
@@ -46,19 +54,23 @@ const PropertyCard = ({ property }: Props) => {
         </div>
 
         <div className="flex gap-3 mt-1">
-          <PropertyButton onClick={openModal}>Ver más detalles</PropertyButton>
-          <PropertyButton onClick={openModal}>Comprar</PropertyButton>
+          <PropertyButton onClick={openPropertyModal}>
+            Ver más detalles
+          </PropertyButton>
+          <PropertyButton onClick={openBuyModal}>
+            Solicitar compra
+          </PropertyButton>
         </div>
       </Card>
 
       {isPropertyModalOpen && (
-        <Modal closeModal={closeModal}>
-          <PropertyDetail property={property} closeModal={closeModal} />
+        <Modal closeModal={closePropertyModal}>
+          <PropertyDetail property={property} closeModal={closePropertyModal} />
         </Modal>
       )}
       {isBuyModalOpen && (
-        <Modal closeModal={closeModal}>
-          <PropertyDetail property={property} closeModal={closeModal} />
+        <Modal closeModal={closeBuyModal}>
+          <BuyRequestOption closeModal={closeBuyModal} />
         </Modal>
       )}
     </>
