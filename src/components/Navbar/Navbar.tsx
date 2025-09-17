@@ -14,7 +14,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="flex items-center justify-between bg-purple-700 text-white px-5 h-[65px] border-b border-white/20">
+    <header className="flex justify-between items-center bg text-white text-xl top-0 h-[65px] py-2 border-b border-white/20">
       {/* Izquierda: Inicio */}
       <div className="flex items-center gap-3">
         <NavbarButton onClick={() => navigate("/")}>Inicio</NavbarButton>

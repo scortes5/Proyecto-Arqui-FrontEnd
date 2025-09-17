@@ -5,12 +5,14 @@ import { PropertyButton } from "./PropertyButton";
 import PropertyDetail from "./PropertyDetail";
 import { Card } from "../Card";
 import { BuyRequestOption } from "./BuyRequestOption";
+import { useAuth0 } from "@auth0/auth0-react";
 
 interface Props {
   property: Property;
 }
 
 const PropertyCard = ({ property }: Props) => {
+  const { isAuthenticated } = useAuth0();
   const [isPropertyModalOpen, setIsPropertyModalOpen] = useState(false);
   const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
 
@@ -57,9 +59,11 @@ const PropertyCard = ({ property }: Props) => {
           <PropertyButton onClick={openPropertyModal}>
             Ver más detalles
           </PropertyButton>
-          <PropertyButton onClick={openBuyModal}>
-            Solicitar compra
-          </PropertyButton>
+          {isAuthenticated && (
+            <PropertyButton onClick={openBuyModal}>
+              Solicitar compra
+            </PropertyButton>
+          )}
         </div>
       </Card>
 
