@@ -13,17 +13,15 @@ interface Props {
 export const PropertyFilter = ({ searchProperties }: Props) => {
   const [location, setLocation] = useState("");
   const [maxPrice, setMaxPrice] = useState<number | "">("");
-  const [date, setDate] = useState<Date | null>(null); // ahora guardamos un Date real
+  const [date, setDate] = useState<Date | null>(null);
 
   const handleApply = () => {
-    const formattedDate = date
-      ? date.toISOString().split("T")[0] // convierte a "YYYY-MM-DD"
-      : "";
+    const formattedDate = date ? date.toISOString().split("T")[0] : "";
     searchProperties(location, maxPrice, formattedDate);
   };
 
   return (
-    <div className="flex items-center gap-2 bg-white rounded-lg p-2 ml-10">
+    <div className="flex items-center gap-2  bg-white rounded-lg p-2 ml-1">
       {/* Ubicación */}
       <input
         type="text"

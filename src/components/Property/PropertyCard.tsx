@@ -1,30 +1,31 @@
 import { useState } from "react";
-import type { Property } from "../../types/types";
-import { Modal } from "./Modal";
+import type { Property } from "../../types/Property";
+import { Modal } from "../Modal";
 import { PropertyButton } from "./PropertyButton";
 import PropertyDetail from "./PropertyDetail";
-import { IoIosArrowRoundForward } from "react-icons/io";
+import { Card } from "../Card";
 
 interface Props {
   property: Property;
 }
 
 const PropertyCard = ({ property }: Props) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPropertyModalOpen, setIsPropertyModalOpen] = useState(false);
+  const [isBuyModalOpen, setIsBuyModalOpen] = useState(false);
 
   const openModal = () => {
     console.log("Abriendo modal");
-    setIsModalOpen(true);
+    setIsPropertyModalOpen(true);
   };
 
   const closeModal = () => {
     console.log("Cerrando modal");
-    setIsModalOpen(false);
+    setIsPropertyModalOpen(false);
   };
 
   return (
     <>
-      <div className="w-auto h-auto border-2 border-[rgba(75,30,133,0.5)] rounded-[1.5em] bg-gradient-to-br from-[rgba(75,30,133,1)] to-[rgba(75,30,133,0.01)] text-white font-nunito p-4 flex flex-col gap-3 backdrop-blur-[12px]">
+      <Card>
         <h1 className="text-base font-medium truncate">{property.name}</h1>
         <img
           src={property.img}
@@ -48,9 +49,14 @@ const PropertyCard = ({ property }: Props) => {
           <PropertyButton onClick={openModal}>Ver más detalles</PropertyButton>
           <PropertyButton onClick={openModal}>Comprar</PropertyButton>
         </div>
-      </div>
+      </Card>
 
-      {isModalOpen && (
+      {isPropertyModalOpen && (
+        <Modal closeModal={closeModal}>
+          <PropertyDetail property={property} closeModal={closeModal} />
+        </Modal>
+      )}
+      {isBuyModalOpen && (
         <Modal closeModal={closeModal}>
           <PropertyDetail property={property} closeModal={closeModal} />
         </Modal>

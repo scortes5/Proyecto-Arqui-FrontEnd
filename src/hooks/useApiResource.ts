@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function useCustomHookAwaitAxios<T extends { id: number }>(
-  baseUrl: string
+export default function useApiResource<T extends { id: number }, R = any>(
+  baseUrl: string,
+  extractor?: (response: R) => T[]
 ) {
   const [data, setData] = useState<T[]>([]);
   const [loading, setLoading] = useState(false);
@@ -13,8 +14,13 @@ export default function useCustomHookAwaitAxios<T extends { id: number }>(
       setLoading(true);
       setError(null);
       try {
-        const response = await axios.get<{ results: T[] }>(baseUrl);
-        setData(response.data.results);
+        const response = await axios.get<R>(baseUrl);
+
+        const newData = extractor
+          ? extractor(response.data)
+          : (response.data as any).results ?? [];
+
+        setData(newData);
       } catch (err) {
         setError(err);
       } finally {
@@ -87,7 +93,7 @@ export default function useCustomHookAwaitAxios<T extends { id: number }>(
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.put<T>(`${baseUrl}/${id}`);
+      await axios.delete(`${baseUrl}/${id}`);
 
       setData(data.filter((elemento) => elemento.id != id));
     } catch (err) {

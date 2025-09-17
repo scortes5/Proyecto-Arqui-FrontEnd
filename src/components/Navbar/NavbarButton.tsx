@@ -5,7 +5,7 @@ interface Props {
   onClick: () => void;
 }
 
-export const Button = ({ children, onClick }: Props) => {
+export const NavbarButton = ({ children, onClick }: Props) => {
   return (
     <button className="px-5 cursor-pointer text-sm" onClick={onClick}>
       {children}

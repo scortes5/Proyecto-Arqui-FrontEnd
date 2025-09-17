@@ -1,13 +1,48 @@
-import { useContext } from "react";
+import useCustomHookAwaitAxios from "./useApiResource";
+import { usePropertiesStore } from "../stores/PropertiesStore";
+import type { Property } from "../types/Property";
+import { useEffect } from "react";
 
-import { PropertiesContext } from "../contexts/PropertiesContext";
+const baseUrl = `${import.meta.env.VITE_BACKEND_URL}/properties`;
 
 export const useProperties = () => {
-  const context = useContext(PropertiesContext);
-  if (!context) {
-    throw new Error(
-      "useProperties debe usarse dentro de un PropertiesProvider"
-    );
-  }
-  return context;
+  const { url, setUrl, page, limit, setPage, setLimit } = usePropertiesStore();
+  const {
+    data: properties,
+    loading,
+    error,
+  } = useCustomHookAwaitAxios<Property>(url);
+
+  useEffect(() => {
+    const newUrl = `${baseUrl}?page=${page}&limit=${limit}`;
+    setUrl(newUrl);
+    console.log("url", newUrl);
+  }, [page, limit]);
+
+  const searchProperties = (
+    location?: string,
+    maxPrice?: number | "",
+    date?: string
+  ) => {
+    let newUrl = `${
+      import.meta.env.VITE_BACKEND_URL
+    }/properties?page=${page}&limit=${limit}`;
+    if (location) newUrl += `&location=${location}`;
+    if (maxPrice !== "" && maxPrice !== undefined)
+      newUrl += `&price=${maxPrice}`;
+    if (date) newUrl += `&date=${date}`;
+    setUrl(newUrl);
+    setPage(1);
+  };
+
+  return {
+    properties,
+    loading,
+    error,
+    page,
+    setPage,
+    limit,
+    setLimit,
+    searchProperties,
+  };
 };

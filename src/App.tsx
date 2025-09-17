@@ -1,8 +1,8 @@
 import Layout from "./components/Layout";
-import Navbar from "./components/Navbar";
-import { PropertiesSection } from "./components/Property/PropertiesSection";
+import Navbar from "./components/Navbar/Navbar";
+import { PropertiesSection } from "./pages/Properties";
 import { Routes, Route, Outlet } from "react-router-dom";
-import { ProfilePage } from "./pages/ProfilePage";
+import { ProfilePage } from "./pages/Profile";
 import { BuyRequests } from "./pages/BuyRequests";
 import { ProtectedRoute } from "./pages/ProtectedRoute";
 

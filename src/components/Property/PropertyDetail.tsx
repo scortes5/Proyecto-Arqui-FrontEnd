@@ -1,4 +1,5 @@
-import type { Property } from "../../types/types";
+import type { Property } from "../../types/Property";
+import { Card } from "../Card";
 import { PropertyButton } from "./PropertyButton";
 
 interface Props {
@@ -8,13 +9,12 @@ interface Props {
 
 export const PropertyDetail = ({ property, closeModal }: Props) => {
   return (
-    <div
-      onClick={(e) => e.stopPropagation()}
-      className="h-auto w-[50em] border-2 border-[rgba(75,30,133,0.5)] rounded-[1.5em] bg-gradient-to-br from-[rgba(75,30,133,1)] to-[rgba(75,30,133,0.01)] text-white font-nunito p-[1.5em] flex flex-col gap-2 backdrop-blur-[12px]
-      relative"
-    >
+    <Card onClick={(e) => e.stopPropagation()}>
       {/* Título */}
-      <h1 className="text-xl font-semibold">{property.name}</h1>
+      <div className="flex gap-5 items-center">
+        <h1 className="text-xl font-semibold">{property.name}</h1>
+        <PropertyButton onClick={closeModal}>X</PropertyButton>
+      </div>
 
       {/* Imagen */}
       <img
@@ -62,10 +62,7 @@ export const PropertyDetail = ({ property, closeModal }: Props) => {
       </a>
 
       {/* Botones */}
-      <div className="flex  mt-2 scale-80 absolute top-0 right-0 mr-2">
-        <PropertyButton onClick={closeModal}>X</PropertyButton>
-      </div>
-    </div>
+    </Card>
   );
 };
 

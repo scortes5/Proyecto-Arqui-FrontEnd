@@ -1,4 +1,4 @@
-import type { Properties, Property } from "./types/types";
+import type { Properties, Property } from "./types/Property";
 
 const property1: Property = {
   id: 84,
