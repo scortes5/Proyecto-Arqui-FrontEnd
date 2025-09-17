@@ -11,7 +11,7 @@ export const PropertyDetail = ({ property, closeModal }: Props) => {
   return (
     <Card onClick={(e) => e.stopPropagation()}>
       {/* Título */}
-      <div className="flex gap-5 items-center">
+      <div className="flex gap-5 items-center justify-between">
         <h1 className="text-xl font-semibold">{property.name}</h1>
         <PropertyButton onClick={closeModal}>X</PropertyButton>
       </div>

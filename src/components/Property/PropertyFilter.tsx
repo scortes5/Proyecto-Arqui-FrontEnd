@@ -54,7 +54,7 @@ export const PropertyFilter = ({ searchProperties }: Props) => {
       {/* Botón aplicar */}
       <button
         onClick={handleApply}
-        className="bg-purple-700 hover:bg-purple-600 px-3 py-1 rounded-md text-sm"
+        className="bg-purple-700 hover:bg-purple-600 px-3 py-1 rounded-md text-sm cursor-pointer "
       >
         Filtrar
       </button>
@@ -64,7 +64,7 @@ export const PropertyFilter = ({ searchProperties }: Props) => {
           setMaxPrice("");
           setDate(null);
         }}
-        className="bg-gray-400 hover:bg-gray-300 px-3 py-1 rounded-md text-sm"
+        className="bg-gray-400 hover:bg-gray-300 px-3 py-1 rounded-md text-sm cursor-pointer "
       >
         Limpiar
       </button>

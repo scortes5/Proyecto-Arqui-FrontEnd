@@ -9,13 +9,13 @@ export const Wallet = ({}: Props) => {
       <span>💰 {balance}</span>
       <button
         onClick={() => addFunds(100)}
-        className="bg-green-500 hover:bg-green-400 px-2 py-1 rounded text-white text-sm"
+        className="bg-green-500 hover:bg-green-400 px-2 py-1 rounded text-white text-sm cursor-pointer "
       >
         +100
       </button>
       <button
         onClick={() => spendFunds(50)}
-        className="bg-red-500 hover:bg-red-400 px-2 py-1 rounded text-white text-sm"
+        className="bg-red-500 hover:bg-red-400 px-2 py-1 rounded text-white text-sm cursor-pointer "
       >
         -50
       </button>
