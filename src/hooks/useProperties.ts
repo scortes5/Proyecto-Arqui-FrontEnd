@@ -2,16 +2,13 @@ import useCustomHookAwaitAxios from "./useApiResource";
 import { usePropertiesStore } from "../stores/PropertiesStore";
 import type { Property } from "../types/Property";
 import { useEffect } from "react";
+import useApiResource from "./useApiResource";
 
 const baseUrl = `${import.meta.env.VITE_BACKEND_URL}/properties`;
 
 export const useProperties = () => {
   const { url, setUrl, page, limit, setPage, setLimit } = usePropertiesStore();
-  const {
-    data: properties,
-    loading,
-    error,
-  } = useCustomHookAwaitAxios<Property>(url);
+  const { data: properties, loading, error } = useApiResource<Property>(url);
 
   useEffect(() => {
     const newUrl = `${baseUrl}?page=${page}&limit=${limit}`;
