@@ -2,11 +2,9 @@ import useApiResource from "../hooks/useApiResource";
 import type { Conversion } from "../types/Conversion";
 import { Loading } from "./Loading";
 
-interface Props {}
-
 const url = "https://mindicador.cl/api/uf/2025";
 
-export const BuyRequests = (props: Props) => {
+export const BuyRequests = () => {
   const { data, loading, error } = useApiResource<Conversion>(
     url,
     (res) => res.serie

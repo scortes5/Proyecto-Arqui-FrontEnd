@@ -1,4 +1,3 @@
-import useCustomHookAwaitAxios from "./useApiResource";
 import { usePropertiesStore } from "../stores/PropertiesStore";
 import type { Property } from "../types/Property";
 import { useEffect } from "react";
