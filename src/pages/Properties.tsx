@@ -3,6 +3,7 @@ import PropertyCard from "../components/Property/PropertyCard";
 import { GoArrowRight, GoArrowLeft } from "react-icons/go";
 import { PropertyFilter } from "../components/Property/PropertyFilter";
 import { useProperties } from "../hooks/useProperties";
+import { Loading } from "./Loading";
 
 export const PropertiesSection = () => {
   const { page, setPage, properties, searchProperties, loading, error } =
@@ -18,9 +19,7 @@ export const PropertiesSection = () => {
             <div className="text-white text-4xl">Error!!</div>
           </div>
         ) : loading ? (
-          <div className="relative h-[calc(100vh-20rem)] flex items-center justify-center">
-            <div className="w-8 h-8 border-4 border-gray-300 border-t-purple-500 rounded-full animate-spin"></div>
-          </div>
+          <Loading />
         ) : properties.length === 0 ? (
           <div className="relative h-[calc(100vh-20rem)] flex items-center justify-center text-center">
             <div className="text-white text-4xl">

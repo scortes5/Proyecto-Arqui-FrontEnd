@@ -1,5 +1,6 @@
 import useApiResource from "../hooks/useApiResource";
 import type { Conversion } from "../types/Conversion";
+import { Loading } from "./Loading";
 
 interface Props {}
 
@@ -16,7 +17,7 @@ export const BuyRequests = (props: Props) => {
   }
 
   if (loading) {
-    return <div>Cargando</div>;
+    return <Loading />;
   }
   return (
     <div>
@@ -28,6 +29,9 @@ export const BuyRequests = (props: Props) => {
           </p>
         ))}
       </ul>
+      <p>
+        La conversión más reciente es {data[0]?.valor} (fecha: {data[0]?.fecha})
+      </p>
     </div>
   );
 };

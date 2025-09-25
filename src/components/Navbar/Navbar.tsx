@@ -27,9 +27,9 @@ const Navbar = () => {
           {isAuthenticated && (
             <>
               <Wallet />
-              <NavbarButton onClick={() => navigate("/profile")}>
+              {/* <NavbarButton onClick={() => navigate("/profile")}>
                 Perfil
-              </NavbarButton>
+              </NavbarButton> */}
               <NavbarButton onClick={() => navigate("/buyrequests")}>
                 Solicitudes de compra
               </NavbarButton>
