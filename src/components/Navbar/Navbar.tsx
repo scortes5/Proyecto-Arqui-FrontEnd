@@ -27,9 +27,9 @@ const Navbar = () => {
           {isAuthenticated && (
             <>
               <Wallet />
-              {/* <NavbarButton onClick={() => navigate("/profile")}>
-                Perfil
-              </NavbarButton> */}
+              <NavbarButton onClick={() => navigate("/properties")}>
+                Propiedades
+              </NavbarButton>
               <NavbarButton onClick={() => navigate("/buyrequests")}>
                 Solicitudes de compra
               </NavbarButton>
@@ -50,11 +50,11 @@ const Navbar = () => {
                 <>
                   <NavbarButton
                     onClick={() => {
-                      navigate("/profile");
+                      navigate("/properties");
                       setMenuOpen(false);
                     }}
                   >
-                    Perfil
+                    Propiedades
                   </NavbarButton>
                   <NavbarButton
                     onClick={() => {

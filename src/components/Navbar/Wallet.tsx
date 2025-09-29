@@ -1,23 +1,30 @@
 import { useWalletStore } from "../../stores/WalletStore";
+import { Plus, Minus } from "lucide-react"; // opcional, si quieres íconos más clean
 
 interface Props {}
 
 export const Wallet = ({}: Props) => {
   const { balance, addFunds, spendFunds } = useWalletStore();
+
   return (
-    <div className="flex items-center gap-2 bg-white text-purple-700 px-3 py-1 rounded-lg">
-      <span>💰 {balance}</span>
+    <div className="flex items-center gap-2 bg-purple-800/40 border border-white/20 px-3 py-1 rounded-full text-white text-sm">
+      {/* Balance */}
+      <span className="flex items-center gap-1 font-medium">💰 {balance}</span>
+
+      {/* Botones */}
       <button
         onClick={() => addFunds(100)}
-        className="bg-green-500 hover:bg-green-400 px-2 py-1 rounded text-white text-sm cursor-pointer "
+        className="p-1 rounded-full bg-green-500/80 hover:bg-green-500 transition-colors"
+        title="Agregar fondos"
       >
-        +100
+        <Plus size={14} />
       </button>
       <button
         onClick={() => spendFunds(50)}
-        className="bg-red-500 hover:bg-red-400 px-2 py-1 rounded text-white text-sm cursor-pointer "
+        className="p-1 rounded-full bg-red-500/80 hover:bg-red-500 transition-colors"
+        title="Gastar fondos"
       >
-        -50
+        <Minus size={14} />
       </button>
     </div>
   );

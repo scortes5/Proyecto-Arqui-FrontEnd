@@ -5,7 +5,7 @@ import { PropertyFilter } from "../components/Property/PropertyFilter";
 import { useProperties } from "../hooks/useProperties";
 import { Loading } from "./Loading";
 
-export const PropertiesSection = () => {
+export const Properties = () => {
   const { page, setPage, properties, searchProperties, loading, error } =
     useProperties();
 
@@ -16,7 +16,9 @@ export const PropertiesSection = () => {
       <div className="w-full flex flex-col items-center">
         {error || !properties ? (
           <div className="relative h-[calc(100vh-20rem)] flex items-center justify-center">
-            <div className="text-white text-4xl">Error!! No se muestran las propiedades</div>
+            <div className="text-white text-4xl">
+              Error!! No se muestran las propiedades
+            </div>
           </div>
         ) : loading ? (
           <Loading />
