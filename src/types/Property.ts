@@ -9,6 +9,7 @@ export type Property = {
   location: string;
   img: string;
   url: string;
-  is_proyect: boolean;
+  is_project: boolean;
   timestamp: string;
+  reservations: number;
 };
