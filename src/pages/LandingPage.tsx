@@ -13,16 +13,16 @@ export const LandingPage = ({}: Props) => {
       {/* Hero Section */}
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-center px-6 py-10 gap-6 scale-[0.8]">
-        <h1 className="text-5xl md:text-6xl font-bold text-white">
+      <section className="flex flex-col items-center justify-center text-center px-5 sm:px-6 py-8 sm:py-10 gap-4 sm:gap-6">
+        <h1 className="text-3xl md:text-6xl font-bold text-white">
           Bienvenido a <span className="text-purple-300">G4Market</span>
         </h1>
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl">
+        <p className="text-base md:text-xl text-white/80 max-w-2xl">
           La forma más simple y segura de encontrar propiedades y realizar
           transacciones en línea.
         </p>
         {isAuthenticated ? (
-          <p className="text-md md:text-lg text-white/70 max-w-xl">
+          <p className="text-sm md:text-lg text-white/70 max-w-xl">
             Para explorar las propiedades disponibles, aprieta{" "}
             <span
               onClick={() => navigate("/properties")}
@@ -33,7 +33,7 @@ export const LandingPage = ({}: Props) => {
             .
           </p>
         ) : (
-          <p className="text-md md:text-lg text-white/70 max-w-xl">
+          <p className="text-sm md:text-lg text-white/70 max-w-xl">
             Para explorar las propiedades disponibles, primero debes{" "}
             <span
               onClick={() => loginWithRedirect()}
@@ -47,22 +47,22 @@ export const LandingPage = ({}: Props) => {
       </section>
 
       {/* Features */}
-      <section className="px-6 py-1 grid md:grid-cols-3 gap-8 w-4/5 mx-auto">
+      <section className="px-5 sm:px-6 py-4 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 w-full md:w-4/5 mx-auto">
         <Card>
-          <h2 className="text-xl font-semibold">Filtros Avanzados</h2>
+          <h2 className="text-lg sm:text-xl font-semibold">Filtros Avanzados</h2>
           <p className="text-white/80">
             Encuentra propiedades de acuerdo a tus necesidades gracias a nuestro
             sistema de búsqueda personalizada.
           </p>
         </Card>
         <Card>
-          <h2 className="text-xl font-semibold">Transacciones Seguras</h2>
+          <h2 className="text-lg sm:text-xl font-semibold">Transacciones Seguras</h2>
           <p className="text-white/80">
             Conexión con Auth0 y billetera integrada para mayor seguridad.
           </p>
         </Card>
         <Card>
-          <h2 className="text-xl font-semibold">Solicitudes de Compra</h2>
+          <h2 className="text-lg sm:text-xl font-semibold">Solicitudes de Compra</h2>
           <p className="text-white/80">
             Gestiona tus intenciones de compra de manera rápida y transparente.
           </p>

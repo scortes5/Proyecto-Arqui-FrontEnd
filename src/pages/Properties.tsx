@@ -10,13 +10,13 @@ export const Properties = () => {
     useProperties();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start p-5 gap-4">
+    <div className="min-h-screen flex flex-col items-center justify-start px-4 py-5 gap-4">
       <PropertyFilter searchProperties={searchProperties} />
 
       <div className="w-full flex flex-col items-center">
         {error || !properties ? (
           <div className="relative h-[calc(100vh-20rem)] flex items-center justify-center">
-            <div className="text-white text-4xl">
+            <div className="text-white text-2xl sm:text-4xl">
               Error!! No se muestran las propiedades
             </div>
           </div>
@@ -24,32 +24,32 @@ export const Properties = () => {
           <Loading />
         ) : properties.length === 0 ? (
           <div className="relative h-[calc(100vh-20rem)] flex items-center justify-center text-center">
-            <div className="text-white text-4xl">
+            <div className="text-white text-2xl sm:text-4xl">
               No se encontraron propiedades que cumplan con el filtro o no
               quedan más propiedades en esta página
             </div>
           </div>
         ) : (
           <>
-            <h1 className="text-white text-2xl">Página {page}</h1>
+            <h1 className="text-white text-xl sm:text-2xl">Página {page}</h1>
 
             <div className="relative w-full flex items-center justify-center">
               {page > 1 && (
                 <button
                   onClick={() => setPage(page - 1)}
-                  className="left-10 cursor-pointer top-[50%] fixed"
+                  className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 cursor-pointer"
                 >
                   <GoArrowLeft color="white" size="2em" />
                 </button>
               )}
-              <div className="grid grid-cols-2 gap-10 w-4/5 p-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 w-full md:w-4/5 p-4 md:p-5">
                 {properties.map((p) => (
                   <PropertyCard property={p} key={p.id} />
                 ))}
               </div>
               <button
                 onClick={() => setPage(page + 1)}
-                className="right-10 cursor-pointer top-[50%] fixed"
+                className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 cursor-pointer"
               >
                 <GoArrowRight color="white" size="2em" />
               </button>

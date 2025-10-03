@@ -14,7 +14,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="flex justify-between items-center bg text-white text-xl top-0 h-[65px] py-2 border-b border-white/20">
+    <header className="flex justify-between items-center bg text-white text-lg sm:text-xl sticky top-0 h-[65px] py-2 px-4 md:px-6 border-b border-white/20 z-50 w-full">
       {/* Izquierda: Inicio */}
       <div className="flex items-center gap-3">
         <NavbarButton onClick={() => navigate("/")}>Inicio</NavbarButton>
@@ -45,9 +45,10 @@ const Navbar = () => {
             {menuOpen ? <HiX size={24} /> : <HiMenu size={24} />}
           </button>
           {menuOpen && (
-            <div className="absolute right-0 top-[65px] bg-purple-700 flex flex-col gap-2 p-3 rounded shadow-lg z-50">
+            <div className="absolute right-0 top-[65px] bg-purple-700 flex flex-col gap-2 p-3 rounded shadow-lg z-50 min-w-[200px]">
               {isAuthenticated && (
                 <>
+                  <Wallet />
                   <NavbarButton
                     onClick={() => {
                       navigate("/properties");

@@ -36,14 +36,14 @@ const PropertyCard = ({ property }: Props) => {
   return (
     <>
       <Card>
-        <h1 className="text-base font-medium truncate">{property.name}</h1>
+        <h1 className="text-sm sm:text-base font-medium truncate">{property.name}</h1>
         <img
           src={property.img}
           alt={property.name}
-          className="w-full h-48 object-cover rounded-[1.5em]"
+          className="w-full h-40 sm:h-48 object-cover rounded-[1.5em]"
         />
 
-        <div className="flex flex-col gap-1 text-xs">
+        <div className="flex flex-col gap-1 text-xs sm:text-sm">
           <p className="m-0">
             <span className="font-semibold">Precio: </span>
             {property.currency}
@@ -55,7 +55,7 @@ const PropertyCard = ({ property }: Props) => {
           </p>
         </div>
 
-        <div className="flex gap-3 mt-1">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mt-1">
           <PropertyButton onClick={openPropertyModal}>
             Ver más detalles
           </PropertyButton>

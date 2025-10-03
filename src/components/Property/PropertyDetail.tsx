@@ -11,8 +11,8 @@ export const PropertyDetail = ({ property, closeModal }: Props) => {
   return (
     <Card onClick={(e) => e.stopPropagation()}>
       {/* Título */}
-      <div className="flex gap-5 items-center justify-between">
-        <h1 className="text-xl font-semibold">{property.name}</h1>
+      <div className="flex gap-3 sm:gap-5 items-center justify-between">
+        <h1 className="text-lg sm:text-xl font-semibold">{property.name}</h1>
         <PropertyButton onClick={closeModal}>X</PropertyButton>
       </div>
 
@@ -20,11 +20,11 @@ export const PropertyDetail = ({ property, closeModal }: Props) => {
       <img
         src={property.img}
         alt={property.name}
-        className="w-full h-56 object-cover rounded-[1em]"
+        className="w-full h-44 sm:h-56 object-cover rounded-[1em]"
       />
 
       {/* Info principal */}
-      <div className="flex flex-col gap-2 text-sm">
+      <div className="flex flex-col gap-2 text-xs sm:text-sm">
         <p>
           <span className="font-semibold">Precio: </span>
           {property.currency}
@@ -60,7 +60,7 @@ export const PropertyDetail = ({ property, closeModal }: Props) => {
         href={property.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-300 underline hover:text-blue-400 text-sm"
+        className="text-blue-300 underline hover:text-blue-400 text-xs sm:text-sm"
       >
         Ver en Portal Inmobiliario
       </a>
